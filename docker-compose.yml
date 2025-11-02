@@ -1,0 +1,19 @@
+services:
+
+  postgres-db:
+    image: postgres:17.6-alpine3.22
+    restart: on-failure
+    env_file:
+      - ../db.env
+    volumes:
+      - "/data/postgresql/data:/var/lib/postgresql/data"
+      - "/data/postgresql/log:/var/log/postgresql"
+    ports:
+      - "5432:5432"
+  crypto-app:
+    image: crypto_app:v1.0.0
+    env_file:
+      - ../app.env
+    restart: always
+    ports:
+      - "8000:8000"
