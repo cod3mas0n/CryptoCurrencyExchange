@@ -28,7 +28,7 @@ SECRET_KEY = "0U18qVJY2NRwClsEszGV_SBoPKB4-oHP0t3EP418tN4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] + os.getenv("ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
