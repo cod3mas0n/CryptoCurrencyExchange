@@ -4,17 +4,17 @@ metadata:
   name: crypto-currency-exchange
   namespace: crypto-currency-exchange
   labels:
-    app: crypto-currency-exchange
+    app.kubernetes.io/name: crypto-currency-exchange
 spec:
   replicas: 1
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: crypto-currency-exchange
+      app.kubernetes.io/name: crypto-currency-exchange
   template:
     metadata:
       labels:
-        app: crypto-currency-exchange
+        app.kubernetes.io/name: crypto-currency-exchange
     spec:
       # imagePullSecrets:
       #   - name: regcred
@@ -23,16 +23,16 @@ spec:
         image: docker.io/alimehr75/crypto-currency-exchange:latest
         imagePullPolicy: Always
         resources:
-          limits:
+          requests:
             cpu: 500m
             memory: 512Mi
-          requests:
+          limits:
             cpu: '1'
             memory: 1Gi
-          envFrom:
-            - configMapRef:
-                name: cce-configmap
-                optional: false
-            - secretRef:
-                name: cce-secret
-                optional: false
+        envFrom:
+          - configMapRef:
+              name: cce-configmap
+              optional: false
+          - secretRef:
+              name: cce-secret
+              optional: false

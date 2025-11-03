@@ -9,3 +9,4 @@ data:
   DATABASE_HOST: 'cnpg-cluster-rw.database.svc.cluster.local'
   DATABASE_PORT: '5432'
   HAS_MIGRATION: '1'
+  ALLOWED_HOSTS: crypto-currency-exchange.sentry4.ir

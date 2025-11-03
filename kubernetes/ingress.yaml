@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: cluster-issuer-prod
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  labels:
+    app.kubernetes.io/name: crypto-currency-exchange
+  name: crypto-currency-exchange
+  namespace: crypto-currency-exchange
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: crypto-currency-exchange.sentry4.ir
+    http:
+      paths:
+      - backend:
+          service:
+            name: crypto-currency-exchange
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - crypto-currency-exchange.sentry4.ir
+    secretName: crypto-currency-exchange.sentry4.ir-tls
