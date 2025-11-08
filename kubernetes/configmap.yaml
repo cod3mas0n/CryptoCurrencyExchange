@@ -6,7 +6,8 @@ metadata:
 data:
 
   DEBUG: 'False'
+  # Replace The Database Host, I deployed postgres via CNPG 
   DATABASE_HOST: 'cnpg-cluster-rw.database.svc.cluster.local'
   DATABASE_PORT: '5432'
   HAS_MIGRATION: '1'
-  ALLOWED_HOSTS: crypto-currency-exchange.sentry4.ir
+  ALLOWED_HOSTS: crypto-currency-exchange.example.com

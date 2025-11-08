@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: crypto-currency-exchange.sentry4.ir
+  - host: crypto-currency-exchange.example.com
     http:
       paths:
       - backend:
@@ -23,5 +23,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - crypto-currency-exchange.sentry4.ir
-    secretName: crypto-currency-exchange.sentry4.ir-tls
+    - crypto-currency-exchange.example.com
+    secretName: crypto-currency-exchange.example.com-tls
